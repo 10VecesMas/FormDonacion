@@ -141,9 +141,6 @@
             <h1 class="font-serif text-4xl md:text-5xl mb-4 text-white drop-shadow-lg">
                 Regala una <span class="text-xmas-gold italic">Sonrisa</span>
             </h1>
-            <p class="text-lg text-gray-200 max-w-2xl mx-auto font-light">
-                Esta Navidad, tu generosidad puede cambiar la vida de un niño. Completa el formulario para coordinar tu donación de regalos.
-            </p>
         </div>
 
         <!-- Tarjeta del Formulario -->
@@ -290,33 +287,57 @@
                 </div>
 
                 <!-- Contenedor para el flujo de APORTE (WhatsApp) -->
-                <div id="moneyFlow" class="hidden py-12 text-center space-y-8 fade-in-up">
-                    <div class="bg-green-50 rounded-2xl p-8 border border-green-100 max-w-md mx-auto">
-                        <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-green-600">
+                <div id="moneyFlow" class="hidden py-8 text-center space-y-8 fade-in-up">
+                    <div class="bg-white rounded-2xl p-8 border border-green-100 shadow-sm max-w-md mx-auto">
+                        <div class="bg-green-50 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-green-600 border border-green-100">
                             <i data-lucide="banknote" class="w-8 h-8"></i>
                         </div>
                         <h3 class="text-2xl font-serif text-gray-900 mb-2">Tu aporte hace la diferencia</h3>
-                        <p class="text-gray-600 mb-6">
-                            Para donaciones monetarias, por favor comunícate directamente con nuestro equipo financiero a través de WhatsApp. Ellos te guiarán en el proceso de forma segura.
+                        <p class="text-gray-600 mb-6 text-sm">
+                            Para donaciones monetarias, por favor comunícate directamente con nuestro equipo financiero a través de WhatsApp.
                         </p>
                         
-                        <!-- Lista de financiamiento -->
-                        <div class="bg-white rounded-xl p-5 mb-8 border border-green-100 shadow-sm text-left max-w-sm mx-auto">
-                            <p class="text-sm font-semibold text-green-800 mb-3 uppercase tracking-wide text-center">Tu donación financia:</p>
+                        <!-- Lista de financiamiento con metas -->
+                        <div class="bg-gray-50 rounded-xl p-5 mb-8 border border-gray-100 text-left">
+                            <p class="text-xs font-bold text-gray-400 mb-4 uppercase tracking-wider text-center">Metas de Recaudación</p>
                             <ul class="space-y-3">
-                                <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-green-50 transition-colors">
-                                    <div class="bg-green-100 text-green-600 p-2 rounded-full shrink-0">
-                                        <i data-lucide="ticket"></i>
+                                <li class="flex items-center justify-between p-3 bg-white rounded-lg border border-gray-200 shadow-sm">
+                                    <div class="flex items-center gap-3">
+                                        <div class="bg-blue-100 text-blue-600 p-2 rounded-full shrink-0">
+                                            <i data-lucide="ticket"></i>
+                                        </div>
+                                        <div>
+                                            <span class="block text-gray-800 font-semibold text-sm">Recreación</span>
+                                            <span class="text-xs text-gray-500">Actividades</span>
+                                        </div>
                                     </div>
-                                    <span class="text-gray-700 font-medium">Recreación y Actividades</span>
+                                    <div class="text-right">
+                                        <span class="block text-lg font-bold text-gray-800">$200.000</span>
+                                        <span class="text-[10px] text-gray-400 uppercase">Meta</span>
+                                    </div>
                                 </li>
-                                <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-green-50 transition-colors">
-                                    <div class="bg-green-100 text-green-600 p-2 rounded-full shrink-0">
-                                        <i data-lucide="cookie"></i>
+                                <li class="flex items-center justify-between p-3 bg-white rounded-lg border border-gray-200 shadow-sm">
+                                    <div class="flex items-center gap-3">
+                                        <div class="bg-orange-100 text-orange-600 p-2 rounded-full shrink-0">
+                                            <i data-lucide="cookie"></i>
+                                        </div>
+                                        <div>
+                                            <span class="block text-gray-800 font-semibold text-sm">Refrigerios</span>
+                                            <span class="text-xs text-gray-500">Navideños</span>
+                                        </div>
                                     </div>
-                                    <span class="text-gray-700 font-medium">Refrigerios Navideños</span>
+                                    <div class="text-right">
+                                        <span class="block text-lg font-bold text-gray-800">$500.000</span>
+                                        <span class="text-[10px] text-gray-400 uppercase">Meta</span>
+                                    </div>
                                 </li>
                             </ul>
+                            
+                            <!-- Total -->
+                            <div class="mt-4 pt-4 border-t border-gray-200 flex justify-between items-end">
+                                <span class="text-sm font-medium text-gray-500">Total Necesario:</span>
+                                <span class="text-2xl font-serif font-bold text-green-700">$700.000</span>
+                            </div>
                         </div>
 
                         <a href="https://wa.link/b311hz" target="_blank" class="block w-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold py-4 px-6 rounded-lg shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 flex justify-center items-center gap-3 text-lg">
