@@ -216,6 +216,11 @@
                                 </div>
                                 <h2 class="text-xl font-serif text-gray-800">Detalles de los Regalos</h2>
                             </div>
+                            <!-- Meta de Regalos Agregada -->
+                            <div class="flex items-center gap-2 bg-red-50 border border-red-100 text-xmas-red px-3 py-1.5 rounded-full shadow-sm">
+                                <i data-lucide="target" class="w-4 h-4"></i>
+                                <span class="text-sm font-bold">Meta: 75 Regalos</span>
+                            </div>
                         </div>
 
                         <!-- Contenedor de lista de regalos -->
@@ -556,8 +561,8 @@
                 regalos.push({
                     tipo: item.querySelector('select[name="giftType[]"]').value,
                     cantidad: item.querySelector('input[name="giftQuantity[]"]').value,
-                    edad: item.querySelector('select[name="giftAge[]"]').value,
-                    descripcion: item.querySelector('input[name="giftDesc[]"]').value
+                    edad: item.querySelector('select[name="giftAge[]"]').value
+                    // Descripción eliminada de la recolección de datos
                 });
             });
 
@@ -639,6 +644,68 @@
                 snowflake.style.animationDelay = Math.random() * 5 + 's';
 
                 container.appendChild(snowflake);
+            }
+        }
+
+        // Iniciar nieve al cargar
+        window.addEventListener('load', createSnow);
+
+        // ----------------------------------------------------
+        // Lógica de Regalos Dinámicos
+        // ----------------------------------------------------
+        
+        function addGiftItem() {
+            const container = document.getElementById('giftList');
+            const index = container.children.length; // Para IDs únicos si es necesario
+            
+            const giftItem = document.createElement('div');
+            giftItem.className = 'gift-item p-5 border border-gray-200 rounded-xl bg-gray-50/50 relative group';
+            
+            // HTML del bloque de regalo
+            // SE ELIMINÓ EL INPUT DE DESCRIPCIÓN
+            giftItem.innerHTML = `
+                <!-- Botón Eliminar (Solo visible si hay más de uno) -->
+                <button type="button" class="delete-btn absolute top-3 right-3 text-gray-400 hover:text-red-500 transition-colors p-1 rounded-full hover:bg-red-50 ${index === 0 ? 'hidden' : ''}" onclick="removeGiftItem(this)">
+                    <i data-lucide="trash-2" class="w-4 h-4"></i>
+                </button>
+
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+                    <!-- Tipo de Regalo (5 columnas) -->
+                    <div class="md:col-span-5">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Tipo de Regalo</label>
+                        <select name="giftType[]" required class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900">
+                            <option value="deportivo">Juguete Deportivo (Futbol, baloncesto, Voleibol)</option>
+                            <option value="mesa">Juego de Mesa</option>
+                        </select>
+                    </div>
+
+                    <!-- Cantidad (2 columnas) - NUEVO -->
+                    <div class="md:col-span-2">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Cantidad</label>
+                        <input type="number" name="giftQuantity[]" min="1" value="1" required class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 text-center">
+                    </div>
+
+                    <!-- Rango de Edad (5 columnas) -->
+                    <div class="md:col-span-5">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Edad Sugerida</label>
+                        <select name="giftAge[]" required class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900">
+                            <option value="9-12">Pre-adolescentes (9-12 años)</option>
+                            <option value="13+">Adolescentes (13+ años)</option>
+                        </select>
+                    </div>
+                </div>
+            `;
+            
+            container.appendChild(giftItem);
+            lucide.createIcons(); // Renderizar iconos nuevos
+            updateDeleteButtons();
+        }
+
+        function removeGiftItem(button) {
+            const container = document.getElementById('giftList');
+            if (container.children.length > 1) {
+                button.closest('.gift-item').remove();
+                updateDeleteButtons();
             }
         }
 
